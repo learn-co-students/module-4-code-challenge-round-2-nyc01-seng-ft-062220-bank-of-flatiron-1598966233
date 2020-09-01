@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 
 class AddTransactionForm extends Component {
-  
+  //controlling form
   state = {
-    date: null,
+    date: "",
     description: "",
     category: "",
     amount: ""
 
   }
   
+  //controlling form
   onChangeHelper = (e) => {
       this.setState({...this.state, [e.target.name]: e.target.value })
   }
 
+  //stops page refresh and sends transaction object up to where DB is
   submitHelper = (e) => {
     e.preventDefault()
     this.props.submitHandler(this.state)
     this.setState({
-      date: null,
+      date: "",
       description: "",
       category: "",
       amount: ""

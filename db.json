@@ -85,46 +85,32 @@
       "amount": -975
     },
     {
-      "date": "2020-09-10",
-      "description": "matt",
-      "category": "postreq",
-      "amount": "0.03",
+      "date": "2020-09-17",
+      "description": "Vacation for Matt",
+      "category": "Fun",
+      "amount": "1000",
       "id": 13
     },
     {
-      "date": "2020-10-01",
-      "description": "ss",
-      "category": "sssss",
-      "amount": "0.03",
+      "date": "2020-09-23",
+      "description": "Second Vacation for Matt",
+      "category": "Really Fun",
+      "amount": "9000",
       "id": 14
     },
     {
-      "date": "2020-10-01",
-      "description": "bbb",
-      "category": "bbbbbbb",
-      "amount": "0.07",
+      "date": "2020-09-25",
+      "description": "Third Vacation for Matt",
+      "category": "Too Fun",
+      "amount": "9999999",
       "id": 15
     },
     {
-      "date": "2020-09-09",
-      "description": "testing emptty form",
-      "category": "sssss",
-      "amount": "0.07",
+      "date": "2020-10-01",
+      "description": "Charity Donation",
+      "category": "Charity",
+      "amount": "999999999",
       "id": 16
-    },
-    {
-      "date": "2020-09-11",
-      "description": "sss",
-      "category": "ssssss",
-      "amount": "0.02",
-      "id": 17
-    },
-    {
-      "date": "2020-09-16",
-      "description": "sss",
-      "category": "ssss",
-      "amount": "0.02",
-      "id": 18
     }
   ]
 }
