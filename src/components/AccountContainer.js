@@ -47,12 +47,18 @@ class AccountContainer extends Component {
     this.setState({ searchQuery: searchQuery})
   }
 
+
+  deleteTransaction=(e)=>{ //ideally I'd want to get the id of the deleted transaction and store it in state
+    const transDesc = e.target.parentElement.parentElement.children[1].innerText
+    console.log("delete transaction", transDesc)
+  }
+
   render() {
     return (
       <div>
         <Search filterTransactions={this.filterTransactions}/>
         <AddTransactionForm addTransaction={this.addTransaction}/>
-        <TransactionsList transactions={this.state.transactions} searchQuery={this.state.searchQuery}/>
+        <TransactionsList transactions={this.state.transactions} searchQuery={this.state.searchQuery} deleteTransaction={this.deleteTransaction}/>
       </div>
     );
   }
