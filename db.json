@@ -125,6 +125,13 @@
       "category": "Sports",
       "amount": "-5",
       "id": 18
+    },
+    {
+      "date": "2020-09-02",
+      "description": "New York",
+      "category": "Travel",
+      "amount": "0.01",
+      "id": 19
     }
   ]
 }
