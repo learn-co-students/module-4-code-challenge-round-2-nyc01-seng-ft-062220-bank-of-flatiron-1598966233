@@ -5,9 +5,13 @@ import AddTransactionForm from "./AddTransactionForm";
 
 
 /*
-For delete advanced Del, I would send up the transObj id on a click, filter Transarray by id's NOT matching that ID
+Advanced Deliverables Planning:
+
+To sort I'd add buttons with onClicks that trigger the sorting of the array that trans list eventually maps through (using .sort()) 
+
+For delete, I would send up the transObj id on a click (onClick on a button), filter a copy of transArray by id's NOT matching that ID
 then set State with that new array and delete from back end adding ID onto URL. Alternatively I could just do another fetch
-from data base which wouldn't be ideal in a real world app
+from database in the .then() after the delete, though that might not be ideal in a large real world app.
 */
 
 class AccountContainer extends Component {
