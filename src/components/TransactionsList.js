@@ -4,7 +4,7 @@ import Transaction from "./Transaction";
 class TransactionsList extends React.Component {
 
   render(){
-  
+    let sortedTransactions = this.props.filterTransactions().map(transObj => <Transaction key={transObj.id} transaction={transObj}/>)
     return (
       <table className="ui celled striped padded table">
         <tbody>
@@ -22,7 +22,7 @@ class TransactionsList extends React.Component {
               <h3 className="ui center aligned header">Amount</h3>
             </th>
           </tr>
-          {this.props.transactions.map(transObj => <Transaction key={transObj.id} transaction={transObj}/>)}
+          {sortedTransactions}
         </tbody>
       </table>
     )

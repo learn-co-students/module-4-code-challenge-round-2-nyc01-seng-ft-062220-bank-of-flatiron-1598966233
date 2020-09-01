@@ -10,7 +10,6 @@ class AccountContainer extends Component {
 
 state = {
   transactions: [],
-  sortTransactions: [],
   searchTerm: "", 
   flag: false
 }
@@ -54,7 +53,7 @@ searchHandler = e => {
 }
 
 filterTransactions = () => {
-  return this.transactions.filter(trans => trans.description.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  return this.state.transactions.filter(trans => trans.description.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 }
 
   render() {
@@ -62,7 +61,7 @@ filterTransactions = () => {
       <div>
         <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
         <AddTransactionForm submitHandler={this.submitHandler}/>
-        <TransactionsList transactions={this.state.transactions} sortTransactions={this.state.sortTransactions}/>
+        <TransactionsList transactions={this.state.transactions} filterTransactions={this.filterTransactions}/>
       </div>
     );
   }
