@@ -83,6 +83,13 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-09-04",
+      "description": "Ural Mountains",
+      "category": "Heyyy",
+      "amount": 0,
+      "id": 13
     }
   ]
 }
