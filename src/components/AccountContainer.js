@@ -6,14 +6,16 @@ import AddTransactionForm from "./AddTransactionForm";
 class AccountContainer extends Component {
 
 
-
+  submitHandler = (transaction) => {
+    return transaction
+  }
 
   render() {
     return (
       <div>
         <Search />
-        <AddTransactionForm />
-        <TransactionsList  />
+        <AddTransactionForm submitHandler={this.submitHandler} />
+        <TransactionsList  newTransaction={this.submitHandler()}/>
       </div>
     );
   }
