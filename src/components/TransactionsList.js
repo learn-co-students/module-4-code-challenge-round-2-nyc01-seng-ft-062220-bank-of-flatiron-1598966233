@@ -13,18 +13,45 @@ class TransactionsList extends React.Component {
         this.setState({ transactions: transactions });
       });
   }
+
   transactions = () => {
     return this.state.transactions.map((transaction) => (
       <Transaction key={transaction.id} transaction={transaction} />
     ));
   };
+  
+  // transactions = () => {
+  //   return this.filterTransactions().map((transaction) => (
+  //     <Transaction key={transaction.id} transaction={transaction} />
+  //   ));
+  // };
+
+  // filterTransactions = () => {
+  //   return this.state.transactions.filter((transaction)=> transaction.description.includes(this.props.searchTerm))
+  // }
 
   newTransaction = (transaction) => {
-    console.log(transaction)
-  }
+    this.setState({transactions: [...this.state.transactions, transaction]})
+
+    let object = {
+      date: transaction.date,
+      description: transaction.description,
+      category: transaction.category,
+      amount: transaction.amount
+    }
+
+    fetch("http://localhost:6001/transactions", {
+      method: "POST",
+      body: JSON.stringify({object}),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+    .then(response => response.json())
+  };
 
   render() {
-    this.newTransaction()
+    console.log(this.props.newTransaction)
     return (
       <table className="ui celled striped padded table">
         <tbody>
