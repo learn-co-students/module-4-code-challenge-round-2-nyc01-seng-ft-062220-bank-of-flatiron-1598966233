@@ -85,18 +85,25 @@
       "amount": -975
     },
     {
-      "date": "2020-09-11",
-      "description": "More Borgar",
-      "category": "Food",
-      "amount": 9,
-      "id": 15
+      "date": "2020-09-10",
+      "description": "Cyclops",
+      "category": "Test",
+      "amount": -40.3,
+      "id": 17
     },
     {
-      "date": "2020-09-25",
-      "description": "Borgar",
-      "category": "Food",
-      "amount": -4.5,
-      "id": 16
+      "date": "2020-09-19",
+      "description": "Finally fixed bug",
+      "category": "Test",
+      "amount": 10,
+      "id": 19
+    },
+    {
+      "date": "2020-09-26",
+      "description": "testing one last time",
+      "category": "Income",
+      "amount": 40.4,
+      "id": 20
     }
   ]
 }

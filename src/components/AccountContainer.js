@@ -36,9 +36,19 @@ class AccountContainer extends Component {
 
     fetch("http://localhost:6001/transactions", options)
     .then(res => res.json())
-    .then(newObj => this.setState({
-      trans: [...this.state.trans, newObj]
-    }))
+    .then(newObj => {
+      if (this.state.filterBois.length > 0 && newObj.description.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
+        this.setState({
+          trans: [...this.state.trans, newObj],
+          filterBois: [...this.state.filterBois, newObj]
+        })
+      } else {
+
+        this.setState({
+          trans: [...this.state.trans, newObj]
+        })
+      }
+    })
   }
 
   searchHandler = (e) => {
@@ -62,9 +72,10 @@ class AccountContainer extends Component {
     .then(res => res.json())
     .then(res => {
       let newArray = this.state.trans.filter(tran => tran.id !== parseInt(obj.id))
-
+      let newFilter = this.state.filterBois.filter(boi => boi.id !== parseInt(obj.id))
       this.setState({
-        trans: newArray
+        trans: newArray,
+        filterBois: newFilter
       })
       
     })
