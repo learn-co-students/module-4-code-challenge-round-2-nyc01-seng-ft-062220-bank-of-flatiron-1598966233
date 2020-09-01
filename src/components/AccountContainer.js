@@ -6,9 +6,26 @@ import AddTransactionForm from "./AddTransactionForm";
 class AccountContainer extends Component {
 
   state = {
-    transactionArray: []
+    transactionArray: [],
+    filteredArray: []
   }
 
+  searchHandler = () => {
+    this.setState({
+      transactionArray: this.state.filteredArray
+    })
+  }
+  
+
+  filterArray = (e) => {
+    let filtered = this.state.transactionArray.filter(transaction => {
+      transaction.description.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    this.setState({
+      filteredArray: filtered //working asinchronously!!!
+    })
+    //invoke search handler somewhere
+  }
 
   componentDidMount() {
     this.getTransactionArray()
@@ -27,7 +44,7 @@ class AccountContainer extends Component {
   render() {
     return (
       <div>
-        <Search />
+        <Search filterArray={this.filterArray}/>
         <AddTransactionForm getTransactionArray={this.getTransactionArray}/>
         <TransactionsList transactionArray={this.state.transactionArray} />
       </div>
