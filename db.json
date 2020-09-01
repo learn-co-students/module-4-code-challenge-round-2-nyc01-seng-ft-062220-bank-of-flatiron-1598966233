@@ -99,11 +99,25 @@
       "id": 14
     },
     {
-      "date": "",
+      "date": "2020-09-03",
       "description": "faesfasfe",
       "category": "awfawef",
-      "amount": "0.05",
+      "amount": "989",
       "id": 15
+    },
+    {
+      "date": "2020-09-03",
+      "description": "faesfasfe",
+      "category": "awfawef",
+      "amount": "3543",
+      "id": 16
+    },
+    {
+      "date": "2020-09-03",
+      "description": "faesfasfe",
+      "category": "fasf",
+      "amount": "322",
+      "id": 17
     }
   ]
 }

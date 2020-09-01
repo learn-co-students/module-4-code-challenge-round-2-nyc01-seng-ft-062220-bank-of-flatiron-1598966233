@@ -14,6 +14,8 @@ class AccountContainer extends Component {
 
   submitHandler = (newTransaction) => {
     //this posts to database and shows upon refresh.  will come back to fix it if time allows.
+    //i have an idea on how this should be fixed but did not have enough time to trouble shoot and update.  
+    //either way, it's going to the database and shows up after refresh.
     let newTransArray = [...this.state.transactions, newTransaction]
     this.setState({transactionData: newTransArray})
 
@@ -27,7 +29,7 @@ class AccountContainer extends Component {
     }
     fetch("http://localhost:6001/transactions", configObj)
     .then(resp => resp.json())
-    .then(newTransaction => this.setState({transactionData: newTransArray}))
+    .then(newTransaction => this.setState({transactionData: newTransaction}))
 
   }
 
