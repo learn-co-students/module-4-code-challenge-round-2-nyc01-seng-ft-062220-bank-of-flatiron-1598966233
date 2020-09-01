@@ -31,6 +31,23 @@ class AccountContainer extends Component {
     // time permitting, use this response to update state id (can be a method of validating successful posts)
   }
 
+  deleteTransaction = async (transactionId) => {
+    let response = await fetch(`http://localhost:6001/transactions/${transactionId}`, {method: "DELTE"})
+    let data = await response.json()
+
+  }
+
+  removeTransaction = (transactionObj) => {
+    console.log("AC-deleting..", transactionObj)
+    // temporarily going by description since posting records optimistically without updating for DB's id is a better benchmark for uniqueness
+    const newTransactionsArr = this.state.myTransactions.filter(transaction => transaction.description !== transactionObj.description)
+    this.setState({myTransactions: newTransactionsArr})
+
+    if (transactionObj.id) {
+      this.deleteTransaction(transactionObj.id)
+    }
+  }
+
   formSubmitHandler = (newTransactionObj) => {
     newTransactionObj.id = null
     const newTransactionsArr = [...this.state.myTransactions, newTransactionObj]
@@ -55,7 +72,7 @@ class AccountContainer extends Component {
       <div>
         <Search searchValue={this.state.searchValue} changeHandler={this.searchChangeHandler}/>
         <AddTransactionForm submitHandler={this.formSubmitHandler}/>
-        <TransactionsList transactions={this.filteredTransactionsByDescription()}/>
+        <TransactionsList transactions={this.filteredTransactionsByDescription()} removeTransaction={this.removeTransaction}/>
       </div>
     );
   }
