@@ -83,6 +83,27 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-09-10",
+      "description": "New Monitor",
+      "category": "Entertainment",
+      "amount": "150",
+      "id": 13
+    },
+    {
+      "date": "2020-09-10",
+      "description": "Borgar",
+      "category": "Food",
+      "amount": 8,
+      "id": 14
+    },
+    {
+      "date": "2020-09-11",
+      "description": "More Borgar",
+      "category": "Food",
+      "amount": 9,
+      "id": 15
     }
   ]
 }
