@@ -83,6 +83,20 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-09-01",
+      "description": "sda",
+      "category": "meat",
+      "amount": "0.06",
+      "id": 13
+    },
+    {
+      "date": "2020-09-18",
+      "description": "Food",
+      "category": "Meat",
+      "amount": "2.00",
+      "id": 14
     }
   ]
 }
