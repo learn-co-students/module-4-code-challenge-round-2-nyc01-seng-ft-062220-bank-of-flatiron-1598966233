@@ -7,7 +7,7 @@ class AccountContainer extends Component {
 
   state = {
     transaction: [],
-    searchWord: ""
+    filterTransactions: ""
   }
 
   componentDidMount(){
@@ -17,22 +17,25 @@ class AccountContainer extends Component {
 
   }
 
-  searchTerm = (event) => {
-    this.setState({searchWord: event.target.value})
+
+  handleChange = (searchMe) => {
+    console.log("SEARCH:", searchMe)
+    this.setState(prevState => {
+      const filterTransactions = prevState.transaction.filter(trans => 
+        trans.description.toLowerCase().includes(searchMe.toLowerCase()) 
+        )
+      return {
+        filterTransactions
+      }
+    })
   }
 
-  searchArray = () => {
-    return this.state.transaction.filter((seaObj =>
-      seaObj.description.toLowerCase().includes(this.state.searchWord.toLowerCase())))
-  }
 
   render() {
 
-    // console.log(this.state)
-    // let newArray = this.state.transaction.map(TranObj => <)
     return (
       <div>
-        <Search value={this.state.searchWord} changeHandler={this.searchTerm}/>
+        <Search handleChange={this.handleChange}/>
         <AddTransactionForm />
         <TransactionsList transactions={this.state.transaction}/>
       </div>

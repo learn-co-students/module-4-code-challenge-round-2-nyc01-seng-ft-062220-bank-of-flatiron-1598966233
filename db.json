@@ -97,6 +97,34 @@
       "category": "Meat",
       "amount": "2.00",
       "id": 14
+    },
+    {
+      "date": "2020-09-04",
+      "description": "Pass Me",
+      "category": "School",
+      "amount": "0.01",
+      "id": 15
+    },
+    {
+      "date": "",
+      "description": "",
+      "category": "",
+      "amount": "",
+      "id": 16
+    },
+    {
+      "date": "2020-09-11",
+      "description": "Flatiron Tuition",
+      "category": "School",
+      "amount": "17000",
+      "id": 17
+    },
+    {
+      "date": "2020-09-02",
+      "description": "Mets",
+      "category": "Sports",
+      "amount": "-5",
+      "id": 18
     }
   ]
 }

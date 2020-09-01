@@ -2,7 +2,6 @@ import React from "react";
 import Transaction from "./Transaction";
 
 const TransactionsList = (props) => {
-  console.log(props.transaction)
   
   let transList = props.transactions.map(transaction => {
     return (
