@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TransactionsList from "./TransactionsList";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
-
+import Sort from "./Sort";
 
 const api = 'http://localhost:6001/transactions'
 
@@ -62,6 +62,7 @@ deleteHandler = (id) => {
     return (
       <div>
         <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
+        <Sort />
         <AddTransactionForm submitHandler={this.submitHandler}/>
         <TransactionsList transactions={this.state.transactions} filterTransactions={this.filterTransactions} deleteHandler={this.deleteHandler}/>
       </div>
