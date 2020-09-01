@@ -1,12 +1,12 @@
 import React from "react";
 
-const Transaction = () => {
+const Transaction = (props) => {
   return (
     <tr>
-      <td>{"your code here..."}</td>
-      <td>{"your code here..."}</td>
-      <td>{"your code here..."}</td>
-      <td>{"your code here..."}</td>
+      <td><button className="delete" onClick={(e) => {props.deleteTransaction(props)}}>X</button>{ props.transaction.date }</td>
+      <td>{ props.transaction.description }</td>
+      <td>{ props.transaction.category }</td>
+      <td>{ props.transaction.amount }</td>
     </tr>
   );
 };
