@@ -6,7 +6,7 @@ const TransactionsList = (props) => {
   const showingTransactions = () => {
     
 
-   return props.transactions.map((transactionObj)=> <Transaction key={transactionObj.id} description={transactionObj.description} date={transactionObj.date} category={transactionObj.category} amount={transactionObj.amount} /> )
+   return props.transactions.map((transactionObj)=> <Transaction key={transactionObj.id} id={transactionObj.id} description={transactionObj.description} date={transactionObj.date} category={transactionObj.category} amount={transactionObj.amount} deleteTransaction={props.deleteTransaction} /> )
   }
 
 
@@ -28,6 +28,9 @@ const TransactionsList = (props) => {
           </th>
           <th>
             <h3 className="ui center aligned header">Amount</h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Delete?</h3>
           </th>
         </tr>
         {showingTransactions()}

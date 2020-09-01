@@ -58,6 +58,37 @@ class AccountContainer extends Component {
         this.setState({...this.state,
         transactions: searchedTransactions})
       }
+
+
+
+      deleteTransaction =(id)=>{
+        const options = {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"},
+          }
+
+        fetch(this.api+id,options)
+        .then(response => response.json())
+        .then(  () => {
+           const newTransactions = this.state.originalAPI.filter((transaction)=> transaction.id !== id)
+          this.setState({
+          ...this.state,
+          originalAPI: newTransactions,
+          transactions: newTransactions
+          
+        })
+      }
+        )
+        
+      }
+
+
+
+
+
+
       
       componentDidMount=()=>{
         this.getTransactions()
@@ -67,7 +98,7 @@ class AccountContainer extends Component {
       <div>
         <Search searchingTransactions={this.searchingTransactions}/>
         <AddTransactionForm submitTransaction={this.submitTransaction}/>
-        <TransactionsList transactions={this.state.transactions} />
+        <TransactionsList transactions={this.state.transactions} deleteTransaction={this.deleteTransaction} />
       </div>
     );
   }
