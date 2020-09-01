@@ -64,11 +64,37 @@ class AccountContainer extends Component {
     this.setState({transactions : filteredList})
   }
 
+  sortByDescription = () => {
+    const sortedTransactions = (
+      this.state.transactions.sort((a,b) => {
+        return (
+          a.description.localeCompare(b.description, 'en', {'sensitivity': 'base'})
+        )
+      })
+    )
+
+    this.setState({transactions:sortedTransactions})
+  }
+
+  sortByCategory = () => {
+    const sortedTransactions = (
+      this.state.transactions.sort((a,b) => {
+        return (
+          a.category.localeCompare(b.category, 'en', {'sensitivity': 'base'})
+        )
+      })
+    )
+
+    this.setState({transactions:sortedTransactions})
+  }
+
   render() {
     return (
       <div>
         <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
         <AddTransactionForm addTransaction={this.addTransaction} />
+        <button type="button" onClick={this.sortByDescription} >Sort by description</button>
+        <button type="button" onClick={this.sortByCategory}>Sort by category</button>
         {this.state.isLoaded === true ? <TransactionsList transactions={this.state.transactions}/> : "Loading!" }
       </div>
     );
