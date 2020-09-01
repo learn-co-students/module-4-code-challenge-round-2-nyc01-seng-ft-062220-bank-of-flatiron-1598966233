@@ -6,7 +6,9 @@ import AddTransactionForm from "./AddTransactionForm";
 class AccountContainer extends Component {
   
   state = {
-    trans: []
+    trans: [],
+    filterBois: [],
+    searchTerm: ""
   }
   
   componentDidMount() {
@@ -38,13 +40,26 @@ class AccountContainer extends Component {
       trans: [...this.state.trans, newObj]
     }))
   }
+
+  searchHandler = (e) => {
+    let newTerm = e.target.value
+
+    let filteredArray = this.state.trans.filter(tran => tran.description.toLowerCase().includes(newTerm.toLowerCase()))
+
+    
+    this.setState({
+      searchTerm: newTerm,
+      filterBois: filteredArray
+    })
+  }
   
   render() {
+    
     return (
       <div>
-        <Search />
+        <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
         <AddTransactionForm addTrans={this.addTrans}/>
-        <TransactionsList trans={this.state.trans}/>
+        <TransactionsList filterBois={this.state.filterBois} trans={this.state.trans}/>
       </div>
     );
   }

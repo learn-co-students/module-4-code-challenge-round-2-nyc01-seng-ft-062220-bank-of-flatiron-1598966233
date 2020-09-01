@@ -104,6 +104,27 @@
       "category": "Food",
       "amount": 9,
       "id": 15
+    },
+    {
+      "date": "",
+      "description": "Deliverable 3",
+      "category": "Technology",
+      "amount": null,
+      "id": 16
+    },
+    {
+      "date": "2020-09-12",
+      "description": "Take 2",
+      "category": "Tech",
+      "amount": 4,
+      "id": 17
+    },
+    {
+      "date": "2020-09-18",
+      "description": "Cyclops",
+      "category": "Income",
+      "amount": -50,
+      "id": 18
     }
   ]
 }
