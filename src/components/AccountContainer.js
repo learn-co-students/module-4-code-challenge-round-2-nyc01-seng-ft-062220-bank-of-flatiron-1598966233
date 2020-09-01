@@ -32,7 +32,17 @@ class AccountContainer extends Component {
   }
 
   deleteTransaction = async (transactionId) => {
-    let response = await fetch(`http://localhost:6001/transactions/${transactionId}`, {method: "DELTE"})
+    console.log("deleteTransaction")
+    console.log(transactionId)
+    console.log(`http://localhost:6001/transactions/${transactionId}`)
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    }
+    let response = await fetch(`http://localhost:6001/transactions/${transactionId}`, options)
     let data = await response.json()
 
   }
