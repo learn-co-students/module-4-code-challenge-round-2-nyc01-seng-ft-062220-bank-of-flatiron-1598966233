@@ -5,9 +5,11 @@ import Transaction from "./Transaction";
 class TransactionsList extends React.Component{
 
   renderTransactions=()=>{ 
+    
     return this.props.allTransactions.map((transaction)=> <Transaction key={transaction.id} transaction={transaction}/>)
   }
   render(){
+    console.log("transactopn list", this.props)
 
     return (
       <table className="ui celled striped padded table">

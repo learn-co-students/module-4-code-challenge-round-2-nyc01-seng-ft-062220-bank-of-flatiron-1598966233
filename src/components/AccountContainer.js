@@ -33,31 +33,32 @@ class AccountContainer extends Component {
     }
 
     searchHandler=(e)=>{
-      console.log(e.target.value)
       this.setState({searchValue: e.target.value})
     }
 
     filTransactions=()=>{
+  
+     if (this.state.searchValue===''){
+       return this.state.allTransactions
 
-    let filteredTransactions =[...this.state.allTransactions]
-     let newArray =  filteredTransactions.filter((tran)=>tran.description.toLowerCase().includes(this.state.searchValue.toLocaleLowerCase()))
-     this.setState({filteredTransactions:newArray})
+     }else{
+      let filteredTransactions =[...this.state.allTransactions]
+      let newArray =  filteredTransactions.filter((tran)=>tran.description.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+      // this.setState({filteredTransactions:newArray})
+       return newArray
+     }
+
     }
 
     filteredTransactions=()=>{
-      if (this.state.searchValue===''){
-        return this.state.allTransactions
-      }else{
-        return this.state.filteredTransactions
-      }
     }
     
     render() {
-      console.log(this.state.filteredTransactions)
+      console.log("account cont", this.state.filteredTransactions)
 
     return (
       <div>
-        <Search searchHandler={this.searchHandler} searchValue={this.state.searchValue}/>
+        <Search  searchHandler={this.searchHandler} searchValue={this.state.searchValue}/>
         <AddTransactionForm  
         changeHandler={this.changeHandler}
         clickHandler={this.clickHandler} 
@@ -69,7 +70,7 @@ class AccountContainer extends Component {
         
         />
         //
-        <TransactionsList allTransactions={this.filteredTransactions()} />
+        <TransactionsList allTransactions={this.filTransactions()} />
       
       </div>
     );
