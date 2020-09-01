@@ -19,8 +19,11 @@ const TransactionsList = (props) => {
           <th>
             <h3 className="ui center aligned header">Amount</h3>
           </th>
+          <th>
+            <h3 className="ui center aligned header">Delete</h3>
+          </th>
         </tr>
-        {props.filterBois.length === 0 ? props.trans.map(tran => <Transaction key={tran.id} transObj={tran} />) : props.filterBois.map(boi => <Transaction key={boi.id} transObj={boi}/>)}
+        {props.filterBois.length === 0 ? props.trans.map(tran => <Transaction key={tran.id} transObj={tran} delHandler={props.delHandler}/>) : props.filterBois.map(boi => <Transaction key={boi.id} transObj={boi} delHandler={props.delHandler}/>)}
         
       </tbody>
     </table>

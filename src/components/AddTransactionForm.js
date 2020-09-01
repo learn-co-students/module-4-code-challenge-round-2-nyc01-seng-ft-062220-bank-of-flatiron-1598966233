@@ -26,6 +26,7 @@ class AddTransactionForm extends Component {
       amount: ""
     })
   }
+
   
   
   render() {

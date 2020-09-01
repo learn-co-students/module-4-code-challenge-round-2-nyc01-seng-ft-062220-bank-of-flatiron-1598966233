@@ -85,20 +85,6 @@
       "amount": -975
     },
     {
-      "date": "2020-09-10",
-      "description": "New Monitor",
-      "category": "Entertainment",
-      "amount": "150",
-      "id": 13
-    },
-    {
-      "date": "2020-09-10",
-      "description": "Borgar",
-      "category": "Food",
-      "amount": 8,
-      "id": 14
-    },
-    {
       "date": "2020-09-11",
       "description": "More Borgar",
       "category": "Food",
@@ -106,25 +92,11 @@
       "id": 15
     },
     {
-      "date": "",
-      "description": "Deliverable 3",
-      "category": "Technology",
-      "amount": null,
+      "date": "2020-09-25",
+      "description": "Borgar",
+      "category": "Food",
+      "amount": -4.5,
       "id": 16
-    },
-    {
-      "date": "2020-09-12",
-      "description": "Take 2",
-      "category": "Tech",
-      "amount": 4,
-      "id": 17
-    },
-    {
-      "date": "2020-09-18",
-      "description": "Cyclops",
-      "category": "Income",
-      "amount": -50,
-      "id": 18
     }
   ]
 }

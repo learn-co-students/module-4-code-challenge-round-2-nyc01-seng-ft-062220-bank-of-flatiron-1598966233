@@ -30,7 +30,7 @@ class AccountContainer extends Component {
         date: obj.date,
         description: obj.description,
         category: obj.category,
-        amount: parseInt(obj.amount) 
+        amount: parseFloat(obj.amount) 
       })
     }
 
@@ -52,6 +52,23 @@ class AccountContainer extends Component {
       filterBois: filteredArray
     })
   }
+
+  delHandler = (obj) => {
+    const options ={
+      method: "DELETE"
+    }
+
+    fetch(`http://localhost:6001/transactions/${obj.id}`, options)
+    .then(res => res.json())
+    .then(res => {
+      let newArray = this.state.trans.filter(tran => tran.id !== parseInt(obj.id))
+
+      this.setState({
+        trans: newArray
+      })
+      
+    })
+  }
   
   render() {
     
@@ -59,7 +76,7 @@ class AccountContainer extends Component {
       <div>
         <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
         <AddTransactionForm addTrans={this.addTrans}/>
-        <TransactionsList filterBois={this.state.filterBois} trans={this.state.trans}/>
+        <TransactionsList delHandler={this.delHandler} filterBois={this.state.filterBois} trans={this.state.trans}/>
       </div>
     );
   }
