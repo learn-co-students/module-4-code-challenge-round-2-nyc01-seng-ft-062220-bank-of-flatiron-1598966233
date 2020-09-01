@@ -34,7 +34,7 @@ class AccountContainer extends Component {
       <div>
         <Search value={this.state.searchWord} changeHandler={this.searchTerm}/>
         <AddTransactionForm />
-        <TransactionsList />
+        <TransactionsList transactions={this.state.transaction}/>
       </div>
     );
   }

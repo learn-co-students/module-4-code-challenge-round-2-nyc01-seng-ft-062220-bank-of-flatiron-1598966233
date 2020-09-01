@@ -4,10 +4,10 @@ const Transaction = (props) => {
   
   return (
     <tr>
-      <td>{props.transcation.date}</td>
-      <td>{props.transcation.description}</td>
-      <td>{props.transcation.category}</td>
-      <td>{props.transcation.amount}</td>
+      <td>{props.transaction.date}</td>
+      <td>{props.transaction.description}</td>
+      <td>{props.transaction.category}</td>
+      <td>{props.transaction.amount}</td>
     </tr>
   );
 };
