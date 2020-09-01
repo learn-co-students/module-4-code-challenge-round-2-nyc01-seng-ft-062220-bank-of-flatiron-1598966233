@@ -42,12 +42,20 @@ class AccountContainer extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  filteredTransactionsByDescription = () => {
+    if (this.state.searchValue === ""){
+      return this.state.myTransactions
+    } else {
+      return this.state.myTransactions.filter(transactionObj => transactionObj.description.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+    }
+  }
+
   render() {
     return (
       <div>
         <Search searchValue={this.state.searchValue} changeHandler={this.searchChangeHandler}/>
         <AddTransactionForm submitHandler={this.formSubmitHandler}/>
-        <TransactionsList transactions={this.state.myTransactions}/>
+        <TransactionsList transactions={this.filteredTransactionsByDescription()}/>
       </div>
     );
   }
