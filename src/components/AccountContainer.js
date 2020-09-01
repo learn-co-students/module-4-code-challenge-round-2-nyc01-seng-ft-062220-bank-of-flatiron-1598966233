@@ -20,6 +20,8 @@ class AccountContainer extends Component {
       .then(transactions => {
         this.setState({
           transactions : transactions,
+          masterList : transactions,
+          searchTerm : '',
           isLoaded : true
         })
       })
@@ -44,10 +46,27 @@ class AccountContainer extends Component {
       })
   }
 
+  searchHandler = (event) => {
+    this.setState({searchTerm : event.target.value})
+    this.filterTransactions()
+  }
+
+  filterTransactions = () => {
+    const filteredList = (
+      this.state.masterList.filter(transaction => {
+        return (
+          transaction.description.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+        )
+      })
+    )
+
+    this.setState({transactions : filteredList})
+  }
+
   render() {
     return (
       <div>
-        <Search />
+        <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
         <AddTransactionForm addTransaction={this.addTransaction} />
         {this.state.isLoaded === true ? <TransactionsList transactions={this.state.transactions}/> : "Loading!" }
       </div>
