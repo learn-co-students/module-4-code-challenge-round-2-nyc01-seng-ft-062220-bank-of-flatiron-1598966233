@@ -14,17 +14,16 @@ class TransactionsList extends React.Component {
   }
 
   renderTransactions = () => {
-    return this.props.transactionArray.map(transObj => <Transaction key={transObj.id} transObj={transObj} /> )
+    return this.props.transactionArray.map(transObj => <Transaction key={transObj.id} transObj={transObj} transDesc={transObj.description}/> )
   }
 
   //filter on description
-  // filterTransactions = () => {
-  //   return this.renderTransactions().filter(transObj => {
-  //     return transObj.description.toLowerCase().includes(this.state.searchValue.toLowerCase())})
-  // }
+  filterTransactions = () => {
+    return this.renderTransactions().filter(transObj => {
+      return transObj.props.transDesc.toLowerCase().includes(this.state.searchValue.toLowerCase())})
+  }
 
   render() {
-    console.log("search value", this.state.searchValue)
   return (
     <>
     <Search searchValue={this.state.searchValue} changeHandler={this.changeHandler} />
@@ -45,7 +44,7 @@ class TransactionsList extends React.Component {
             <h3 className="ui center aligned header">Amount</h3>
           </th>
         </tr>
-        {this.renderTransactions()}
+        {this.filterTransactions()}
       </tbody>
     </table>
     </>
