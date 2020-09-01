@@ -14,10 +14,15 @@ class AddTransactionForm extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  submitHelper = (e) => {
+    e.preventDefault();
+    this.props.submitHandler(this.state)
+  }
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.submitHelper}>
           <div className="inline fields">
             <input type="date" name="date" value={this.state.date} onChange={this.changeHandler} />
             <input type="text" name="description" placeholder="Description" onChange={this.changeHandler} />
