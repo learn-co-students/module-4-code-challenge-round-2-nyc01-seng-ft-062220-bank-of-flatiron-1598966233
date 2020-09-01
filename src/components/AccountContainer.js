@@ -6,7 +6,8 @@ import AddTransactionForm from "./AddTransactionForm";
 class AccountContainer extends Component {
 
   state = {
-    myTransactions: []
+    myTransactions: [],
+    searchValue: ""
   }
 
   async componentDidMount(){
@@ -37,10 +38,14 @@ class AccountContainer extends Component {
     this.addTransaction(newTransactionObj)
   }
 
+  searchChangeHandler = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
   render() {
     return (
       <div>
-        <Search />
+        <Search searchValue={this.state.searchValue} changeHandler={this.searchChangeHandler}/>
         <AddTransactionForm submitHandler={this.formSubmitHandler}/>
         <TransactionsList transactions={this.state.myTransactions}/>
       </div>
