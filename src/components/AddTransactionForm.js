@@ -1,19 +1,40 @@
 import React, { Component } from "react";
 
 class AddTransactionForm extends Component {
+  
+  state = {
+    date: null,
+    description: "",
+    category: "",
+    amount: ""
+
+  }
+  
+  onChangeHelper = (e) => {
+      this.setState({...this.state, [e.target.name]: e.target.value })
+  }
+
+  submitHelper = (e) => {
+    e.preventDefault()
+    this.props.submitHandler(this.state)
+    this.setState({
+      date: null,
+      description: "",
+      category: "",
+      amount: ""
+    })
+  }
+
   render() {
+  
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.submitHelper} className="ui form">
           <div className="inline fields">
-            <input type="date" name="date" />
-            <input type="text" name="description" placeholder="Description" />
-            <input type="text" name="category" placeholder="Category" />
-            <input
-              type="number"
-              name="amount"
-              placeholder="Amount"
-              step="0.01"
+            <input type="date" name="date" onChange={this.onChangeHelper} value={this.state.name} />
+            <input type="text" name="description" onChange={this.onChangeHelper} value={this.state.description} placeholder="Description" />
+            <input type="text" name="category" onChange={this.onChangeHelper} value={this.state.category} placeholder="Category" />
+            <input type="number" name="amount" onChange={this.onChangeHelper} value={this.state.amount} placeholder="Amount" step="0.01"
             />
           </div>
           <button className="ui button" type="submit">
