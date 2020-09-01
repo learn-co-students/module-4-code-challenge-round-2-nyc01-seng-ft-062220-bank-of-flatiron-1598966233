@@ -8,7 +8,7 @@ class TransactionsList extends React.Component  {
 
   render() {
 
-    let renderTransactions = this.props.transactions.map((transactionObj) => <Transaction key={transactionObj.id} transaction={transactionObj} />)
+    let renderTransactions = this.props.transactions.map((transactionObj) => <Transaction key={transactionObj.id} transaction={transactionObj} />) 
     return (
       <table className="ui celled striped padded table">
         <tbody>
@@ -26,7 +26,10 @@ class TransactionsList extends React.Component  {
               <h3 className="ui center aligned header">Amount</h3>
             </th>
           </tr>
-          {renderTransactions}
+          
+          {/* {renderTransactions} */}
+
+          { this.props.filter.length === 0 ? this.props.transactions.map((transactionObj) => <Transaction key={transactionObj.id} transaction={transactionObj} />) : this.props.filter.map(filter => <Transaction key={filter.id} transaction={filter} />) }
           
           
         </tbody>

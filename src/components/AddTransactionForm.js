@@ -48,6 +48,7 @@ class AddTransactionForm extends Component {
               name="amount"
               placeholder="Amount"
               step="0.01"
+              onChange={this.changeHandler}
             />
           </div>
           <button className="ui button" type="submit">

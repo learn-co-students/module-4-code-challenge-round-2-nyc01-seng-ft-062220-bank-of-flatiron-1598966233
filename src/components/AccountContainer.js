@@ -7,6 +7,8 @@ class AccountContainer extends Component {
 
   state = {
     transactions: [],
+    search: '',
+    filteredTransactions: []
     
   }
 
@@ -28,25 +30,40 @@ class AccountContainer extends Component {
     this.setState({...this.state, transactions: newArr})
   }
 
-  
-  
-  
+  searchHandler = (e) => {
+    console.log(e.target.value)
+    let newTerm = e.target.value 
+    let searchedTransactions = this.state.transactions.filter((transaction)=> transaction.description.toLowerCase().includes(newTerm.toLowerCase()))
+    this.setState({
+      search: newTerm,
+      filteredTransactions: searchedTransactions
+    })
+
+    // this.setState({search: e.target.value})
+    }
+
+  // searchHandler =(e) => {
+  //   const searchedTransactions = this.state.transactions.filter((transaction) => transaction.description.includes(e.target.value))
+  //   this.setState({...this.state, 
+  //     filteredTransactions: searchedTransactions
+  //   })
+  // }
   
 
-  searchHandler = (e) => {
-    const searchedTransactions = this.state.transactions.filter((transaction)=> transaction.description.includes(e.target.value))
-    this.setState({...this.state,
-    transactions: searchedTransactions})
-  }
+    
+
+  
   render() {
     return (
       <div>
-        <Search searchHandler={this.searchHandler}/>
+        <Search searchHandler={this.searchHandler} searchInput={this.state.search}/>
         <AddTransactionForm newTransaction = {this.newTransaction} />
-        <TransactionsList  transactions = {this.state.transactions}/>
+        <TransactionsList filter={this.state.filteredTransactions}  transactions = {this.state.transactions}/>
       </div>
     );
   }
 }
 
 export default AccountContainer;
+
+

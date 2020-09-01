@@ -6,7 +6,8 @@ const Search = (props) => {
       <input
         type="text"
         placeholder={"Search your Recent Transactions"}
-        onChange={(e) => {props.searchHandler()}}
+        onChange={props.searchHandler}
+        value={props.searchInput}
       />
       <i className="circular search link icon"></i>
     </div>
