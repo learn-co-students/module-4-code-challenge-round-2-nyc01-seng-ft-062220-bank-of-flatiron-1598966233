@@ -88,6 +88,39 @@ class AccountContainer extends Component {
     this.setState({transactions:sortedTransactions})
   }
 
+  deleteTransaction = (event) => {
+    const transaction = this.state.masterList.find(transaction => {
+      return (
+        transaction.id === parseInt(event.target.id, 10)
+      )
+    })
+
+    this.updateDOMFromDelete(transaction)
+
+    const configObj = {
+      method: "DELETE",
+      headers: {
+        "content-type" : "application/json"
+      },
+      body : JSON.stringify(transaction)
+    }
+
+    fetch(URL + transaction.id, configObj)
+      .then(response => response.json())
+      .then(console.log("delete request successful"))
+  }
+
+  updateDOMFromDelete = (deletedTransaction) => {
+    const masterList = this.state.masterList.filter(transaction => {
+      return (
+        transaction.id !== deletedTransaction.id
+      )
+    })
+
+    this.setState({masterList:masterList,
+                transactions:masterList})
+  }
+
   render() {
     return (
       <div>
@@ -95,7 +128,7 @@ class AccountContainer extends Component {
         <AddTransactionForm addTransaction={this.addTransaction} />
         <button type="button" onClick={this.sortByDescription} >Sort by description</button>
         <button type="button" onClick={this.sortByCategory}>Sort by category</button>
-        {this.state.isLoaded === true ? <TransactionsList transactions={this.state.transactions}/> : "Loading!" }
+        {this.state.isLoaded === true ? <TransactionsList transactions={this.state.transactions} deleteTransaction={this.deleteTransaction}/> : "Loading!" }
       </div>
     );
   }

@@ -7,7 +7,7 @@ class TransactionsList extends React.Component {
     return (
       this.props.transactions.map(transaction => {
         return (
-          <Transaction key={transaction.id} transaction={transaction}/>
+          <Transaction key={transaction.id} deleteTransaction={this.props.deleteTransaction} transaction={transaction}/>
         )
       })
     )
@@ -29,6 +29,9 @@ class TransactionsList extends React.Component {
             </th>
             <th>
               <h3 className="ui center aligned header">Amount</h3>
+            </th>
+            <th>
+              <h3 className="ui center aligned header">Delete</h3>
             </th>
           </tr>
           {this.mapTransactions()}
