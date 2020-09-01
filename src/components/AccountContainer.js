@@ -33,9 +33,7 @@ class AccountContainer extends Component {
         fetch(transactionUrls, packet)
             .then(res => res.json())
 
-        fetch(transactionUrls)
-            .then(res => res.json())
-            .then(transactions => this.setState({transactions: transactions, filteredTransactions: transactions}))
+        this.updateDom()
     }
 
     searchHandler = (obj) => {
@@ -64,6 +62,10 @@ class AccountContainer extends Component {
         fetch(transactionUrls + obj.id, packet)
             .then(res => res.json())
 
+        this.updateDom()
+    }
+
+    updateDom = () => {
         fetch(transactionUrls)
             .then(res => res.json())
             .then(transactions => this.setState({transactions: transactions, filteredTransactions: transactions}))

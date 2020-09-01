@@ -33,6 +33,12 @@ class AddTransactionForm extends Component {
   submitHandler = (e) => {
     e.preventDefault()
     this.props.submitHandler(this.state)
+    this.setState({
+      date: '',
+      description: '',
+      category: '',
+      amount: ''
+    })
   }
 
 
