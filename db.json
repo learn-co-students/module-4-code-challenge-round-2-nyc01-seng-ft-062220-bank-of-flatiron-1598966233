@@ -97,6 +97,13 @@
       "category": "DONE",
       "amount": "150000",
       "id": 14
+    },
+    {
+      "date": "2020-08-22",
+      "description": "Oliver's E.R Visit",
+      "category": "Pet",
+      "amount": "540.00",
+      "id": 15
     }
   ]
 }

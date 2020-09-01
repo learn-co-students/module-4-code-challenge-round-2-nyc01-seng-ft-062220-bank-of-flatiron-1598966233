@@ -11,6 +11,9 @@ class AddTransactionForm extends Component {
   onChange = (e) => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
+
+    // console.log("keystrokes",this.state)
+  
   };
 
   submitHandler = (e) => {
@@ -52,7 +55,7 @@ class AddTransactionForm extends Component {
               onChange={this.onChange}
             />
           </div>
-          <button className="ui button" type="submit">
+          <button className="ui blue button" type="submit">
             Add Transaction
           </button>
         </form>

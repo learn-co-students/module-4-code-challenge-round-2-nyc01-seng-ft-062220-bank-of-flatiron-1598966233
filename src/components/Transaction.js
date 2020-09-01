@@ -1,6 +1,6 @@
 import React from "react";
 
-const Transaction = ({singleTrans}) => {
+const Transaction = ({ singleTrans }) => {
   return (
     <tr>
       <td>{singleTrans.date}</td>

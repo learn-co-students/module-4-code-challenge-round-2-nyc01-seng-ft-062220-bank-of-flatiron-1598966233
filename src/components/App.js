@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="ui raised segment">
-        <div className="ui segment violet inverted">
+        <div className="ui segment blue inverted">
           <h2>The Royal Bank of Flatiron</h2>
         </div>
         <AccountContainer />
