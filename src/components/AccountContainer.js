@@ -13,7 +13,7 @@ class AccountContainer extends Component {
       <div>
         <Search handleOnChange={this.props.handleOnChange}/>
         <AddTransactionForm handleSubmit={this.props.handleSubmit}/>
-        <TransactionsList transactions={this.props.transactions}/>
+        <TransactionsList onClick={this.props.onClick} transactions={this.props.transactions}/>
       </div>
     );
   }

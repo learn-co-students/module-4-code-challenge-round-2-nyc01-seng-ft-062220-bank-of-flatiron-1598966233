@@ -90,20 +90,6 @@
       "description": "Paying the GF",
       "category": "House stuff",
       "amount": "200"
-    },
-    {
-      "id": 14,
-      "date": "2020-09-23",
-      "description": "For the Movement",
-      "category": "Human Rights",
-      "amount": "200"
-    },
-    {
-      "id": 15,
-      "date": "2020-09-24",
-      "description": "something cool",
-      "category": "something",
-      "amount": "200"
     }
   ]
 }

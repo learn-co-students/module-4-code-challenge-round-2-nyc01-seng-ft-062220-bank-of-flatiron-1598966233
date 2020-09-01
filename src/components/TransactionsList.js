@@ -7,7 +7,7 @@ export default class TransactionsList extends React.Component {
   
 
   renderTransactions = () => {
-    return this.props.transactions.map(transaction => <Transaction key={transaction.id} id={transaction.id} transaction={transaction} />)
+    return this.props.transactions.map(transaction => <Transaction key={transaction.id} onClick={this.props.onClick} id={transaction.id} transaction={transaction} />)
   }
 
   render() {
@@ -26,6 +26,9 @@ export default class TransactionsList extends React.Component {
             </th>
             <th>
               <h3 className="ui center aligned header">Amount</h3>
+            </th>
+            <th>
+              <h3 className="ui center aligned header">Delete transaction</h3>
             </th>
           </tr>
           {this.renderTransactions()}

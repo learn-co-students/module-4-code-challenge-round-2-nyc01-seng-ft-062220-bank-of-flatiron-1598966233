@@ -4,6 +4,7 @@ import "../stylesheets/App.css";
 
 const API = "http://localhost:6001/transactions"
 
+
 class App extends Component {
 
   state = {
@@ -20,7 +21,7 @@ class App extends Component {
     })
   }
 
-
+  //post call with new transaction
   postTransaction = async (body) => {
     
     const config = {
@@ -33,10 +34,27 @@ class App extends Component {
     }
     const response = await fetch(API, config)
     if(response.ok){
-      alert(`The transaction ${response.description} was submitted successfully`)
+      alert(`The transaction was submitted successfully`)
+    }
+  }
+  //delete transaction call 
+
+  deleteTransaction = async (id) => {
+    
+    const config = {
+      method: 'DELETE',
+      headers: { 
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(`${API}/${id}`, config)
+    if(response.ok){
+     alert(`The transaction was deleted successfully`)
     }
   }
 
+  //form submission
   handleSubmit = (event) => {
     event.preventDefault();
     let date = event.target.date.value
@@ -55,7 +73,7 @@ class App extends Component {
     }, () => this.postTransaction(newTransactionObj))
 
   }
-
+  //fill search term
   handleOnChange = (event) => {
     let lowercaseSaerchTerm = event.target.value.toLowerCase()
     this.setState({
@@ -65,8 +83,15 @@ class App extends Component {
     this.filterSearch()
   }
 
+  //search filter
   filterSearch = () => {
     return this.state.transactions.filter(transaction => transaction.description.toLowerCase().includes(this.state.searchTerm))
+  }
+
+  //delete transaction
+  handleOnClick = (id) => {
+    this.deleteTransaction(id)
+    this.forceUpdate()
   }
 
   render() {
@@ -75,7 +100,7 @@ class App extends Component {
         <div className="ui segment violet inverted">
           <h2>The Royal Bank of Flatiron</h2>
         </div>
-        <AccountContainer handleOnChange={this.handleOnChange} handleSubmit={this.handleSubmit} transactions={this.filterSearch()}/>
+        <AccountContainer onClick={this.handleOnClick} handleOnChange={this.handleOnChange} handleSubmit={this.handleSubmit} transactions={this.filterSearch()}/>
       </div>
     );
   }
