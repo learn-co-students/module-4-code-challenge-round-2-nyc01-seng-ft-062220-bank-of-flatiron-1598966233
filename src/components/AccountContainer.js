@@ -41,7 +41,8 @@ class AccountContainer extends Component {
       .then(response => response.json())
       .then(newTransaction => {
         this.setState({
-          transactions : [...this.state.transactions, newTransaction]
+         transactions : [...this.state.transactions, newTransaction],
+         masterList : [...this.state.masterList, newTransaction]
         })
       })
   }

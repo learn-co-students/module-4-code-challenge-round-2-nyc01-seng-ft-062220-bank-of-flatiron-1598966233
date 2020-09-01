@@ -90,6 +90,20 @@
       "category": "Food",
       "amount": "0.02",
       "id": 13
+    },
+    {
+      "date": "2020-09-10",
+      "description": "CHEESETWO",
+      "category": "Income",
+      "amount": "-0.01",
+      "id": 14
+    },
+    {
+      "date": "2020-09-11",
+      "description": "cheesethree",
+      "category": "income",
+      "amount": "0.02",
+      "id": 15
     }
   ]
 }
