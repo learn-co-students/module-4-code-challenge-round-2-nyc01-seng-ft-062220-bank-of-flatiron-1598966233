@@ -1,7 +1,11 @@
 import React from "react";
 import Transaction from "./Transaction";
+//need to insert new table row with new table data containing the API data 
+const TransactionsList = (props) => {
 
-const TransactionsList = () => {
+  let something = props.transactions.map(function(transaction){ return <Transaction key={transaction.id} transaction={transaction}/>})
+
+
   return (
     <table className="ui celled striped padded table">
       <tbody>
@@ -19,7 +23,7 @@ const TransactionsList = () => {
             <h3 className="ui center aligned header">Amount</h3>
           </th>
         </tr>
-        {/* render Transactions here */}
+        {something}
       </tbody>
     </table>
   );
