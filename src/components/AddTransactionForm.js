@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-const URL = 'http://localhost:6001/transactions/'
 
 class AddTransactionForm extends Component {
 
@@ -17,28 +16,11 @@ class AddTransactionForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  submitHandler = (e) => {
-    e.preventDefault()
-    this.updateTransactions()
-  }
-
-  updateTransactions = () => {
-    fetch(URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(this.state)
-    })
-    .then(window.location.reload())
-  }
-
-
 
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form" onSubmit={this.submitHandler}>
+        <form className="ui form" onSubmit={(e) => this.props.submitHandler(e, this.state)}>
           <div className="inline fields">
             <input type="date" name="date" value={this.state.date} onChange={this.changeHandler} />
             <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.changeHandler}/>
