@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TransactionsList from "./TransactionsList";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
+import Sort from "./Sort";
 
 const transactionUrls = "http://localhost:3000/transactions/"
 
@@ -28,7 +29,6 @@ class AccountContainer extends Component {
             },
             body: JSON.stringify(obj)
         }
-
 
         fetch(transactionUrls, packet)
             .then(res => res.json())
@@ -71,11 +71,30 @@ class AccountContainer extends Component {
             .then(transactions => this.setState({transactions: transactions, filteredTransactions: transactions}))
     }
 
+    sortHandler = (sort) => {
+        let newArray = [...this.state.transactions]
+
+        if (sort === "category") {
+            newArray.sort((a, b) => a.category[0] - b.category[0]);
+            this.setState({
+                filteredTransactions: newArray
+            })
+
+        } else if (sort === "category") {
+            console.log("category")
+
+        } else if (sort === "description") {
+            console.log("description")
+        }
+    }
+
+
 
     render() {
     return (
       <div>
         <Search searchHandler={this.searchHandler}/>
+        <Sort sortHandler={this.sortHandler}/>
         <AddTransactionForm submitHandler={this.submitHandler}/>
         <TransactionsList transactions={this.state.filteredTransactions} deleteHandler={this.deleteHandler} />
       </div>
