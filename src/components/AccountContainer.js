@@ -19,12 +19,33 @@ getTransactions = () =>{
   .then(transactions => this.setState({transactionsArray: transactions}))
 }
 
+submitHandler =({date,description,category,amount})=>{
+  let newTrans = {
+    method: "POST",
+    headers:{ 
+      "Content-Type":"application/json",
+      "Accepts": "application/json"
+    },
+    body: JSON.stringify({
+      date:date, 
+      description:description,
+      category:category,
+      amount:amount
+    })
+  }
+  fetch(url,newTrans)
+  .then(resp => resp.json())
+  .then(trans => this.setState({
+    transactionsArray : [...this.state.transactionsArray,trans]
+  }))
+}
+
   render() {
   
     return (
       <div>
         <Search />
-        <AddTransactionForm />
+        <AddTransactionForm addTrans={this.submitHandler}/>
         <TransactionsList allTransactions={this.state.transactionsArray} />
       </div>
     );
