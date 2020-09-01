@@ -2,17 +2,17 @@ import React, { Component } from "react";
 
 class AddTransactionForm extends Component {
 
-state={
+  state={
 
-  date: '',
+    date: '',
     description:'',
     category:'',
     amount:null
-}
+  }
 
-changeHandler=(e)=>{
+  changeHandler=(e)=>{
   this.setState({[e.target.name]:e.target.value})
-}
+  }
 
   render() {
     return (

@@ -90,6 +90,13 @@
       "category": "shopping",
       "amount": "120",
       "id": 13
+    },
+    {
+      "date": "",
+      "description": "my burger",
+      "category": "food",
+      "amount": "30",
+      "id": 14
     }
   ]
 }

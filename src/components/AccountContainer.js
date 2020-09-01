@@ -3,10 +3,13 @@ import TransactionsList from "./TransactionsList";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
 
+
 class AccountContainer extends Component {
 
   state={
     allTransactions:[],  
+    searchValue:'',
+    filteredTransactions:[]
   }
 
   componentDidMount(){
@@ -29,11 +32,32 @@ class AccountContainer extends Component {
       })
     }
 
-  render() {
+    searchHandler=(e)=>{
+      console.log(e.target.value)
+      this.setState({searchValue: e.target.value})
+    }
+
+    filTransactions=()=>{
+
+    let filteredTransactions =[...this.state.allTransactions]
+     let newArray =  filteredTransactions.filter((tran)=>tran.description.toLowerCase().includes(this.state.searchValue.toLocaleLowerCase()))
+     this.setState({filteredTransactions:newArray})
+    }
+
+    filteredTransactions=()=>{
+      if (this.state.searchValue===''){
+        return this.state.allTransactions
+      }else{
+        return this.state.filteredTransactions
+      }
+    }
+    
+    render() {
+      console.log(this.state.filteredTransactions)
 
     return (
       <div>
-        <Search />
+        <Search searchHandler={this.searchHandler} searchValue={this.state.searchValue}/>
         <AddTransactionForm  
         changeHandler={this.changeHandler}
         clickHandler={this.clickHandler} 
@@ -44,7 +68,9 @@ class AccountContainer extends Component {
         amount={this.state.amount}
         
         />
-        <TransactionsList allTransactions={this.state.allTransactions} />
+        //
+        <TransactionsList allTransactions={this.filteredTransactions()} />
+      
       </div>
     );
   }
