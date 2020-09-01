@@ -10,7 +10,8 @@ class AccountContainer extends Component {
   constructor() {
     super()
     this.state = {
-      transactions: []
+      transactions: [],
+      filtered: []
     }
   }
 
@@ -51,12 +52,21 @@ class AccountContainer extends Component {
     this.postCall(transObj)
   }
 
+  searchHandler = (e) => {
+    console.log(e.target.value)
+    const filteredState = this.state.transactions.filter(element => {
+      return (element.description.includes(e.target.value) || element.category.includes(e.target.value))
+    })
+    console.log(filteredState)
+    this.setState({filtered: filteredState})
+  }
+
   render() {
     return (
       <div>
-        <Search />
+        <Search search={this.searchHandler}/>
         <AddTransactionForm submit={this.submitHandler}/>
-        <TransactionsList transactions={this.state.transactions}/>
+        <TransactionsList filtered={this.state.filtered} transactions={this.state.transactions}/>
       </div>
     );
   }

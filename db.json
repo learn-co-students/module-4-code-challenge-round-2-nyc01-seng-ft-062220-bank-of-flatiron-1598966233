@@ -97,6 +97,13 @@
       "category": "g",
       "amount": "-1",
       "id": 14
+    },
+    {
+      "date": "2020-08-31",
+      "description": "hello",
+      "category": "how are you",
+      "amount": "25",
+      "id": 15
     }
   ]
 }

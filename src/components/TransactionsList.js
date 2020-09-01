@@ -2,8 +2,16 @@ import React from "react";
 import Transaction from "./Transaction";
 
 const TransactionsList = (props) => {
+  let transArr = []
 
-  let transArr = props.transactions.map(transact => <Transaction key={transact.id} transaction={transact}/>)
+  if (props.filtered.length === 0) {
+    transArr = props.transactions.map(transact => <Transaction key={transact.id} transaction={transact}/>)
+    console.log(transArr)
+  } else {
+    transArr = props.filtered.map(transact => <Transaction key={transact.id} transaction={transact}/>)
+    console.log(transArr)
+  }
+  
   return (
     <table className="ui celled striped padded table">
       <tbody>
