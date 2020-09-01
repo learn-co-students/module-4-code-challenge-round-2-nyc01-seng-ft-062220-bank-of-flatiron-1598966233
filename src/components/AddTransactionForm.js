@@ -30,7 +30,9 @@ class AddTransactionForm extends Component {
       body: JSON.stringify(this.state)
     })
     .then(response => response.json())
-    .then(transaction => console.log(transaction))
+    //add the new transaction to the main array
+    // .then(transaction => console.log("submit", transaction))
+    .then(transaction => this.props.newTransaction(transaction))
   }
   
   render() {

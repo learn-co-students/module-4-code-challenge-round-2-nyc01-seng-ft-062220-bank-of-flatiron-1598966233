@@ -19,11 +19,18 @@ class AccountContainer extends Component {
     .then(transactionObj => this.setState({transactions: transactionObj}))
 
   }
+
+  newTransaction = (transactionObj) => {
+    // console.log("transaction Obj test", transactionObj)
+    let newArr = [...this.state.transactions, transactionObj]
+    // console.log("new Array Test", newArr)
+    this.setState({...this.state, transactions: newArr})
+  }
   render() {
     return (
       <div>
         <Search />
-        <AddTransactionForm />
+        <AddTransactionForm newTransaction = {this.newTransaction} />
         <TransactionsList transactions = {this.state.transactions}/>
       </div>
     );

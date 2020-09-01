@@ -90,6 +90,27 @@
       "category": "Heyyy",
       "amount": 0,
       "id": 13
+    },
+    {
+      "date": "2020-09-03",
+      "description": "Ural Mountains",
+      "category": "Heyyy",
+      "amount": 0,
+      "id": 14
+    },
+    {
+      "date": "2020-09-03",
+      "description": "Ural Mountains",
+      "category": "Heyyy",
+      "amount": 0,
+      "id": 15
+    },
+    {
+      "date": "2020-09-04",
+      "description": "Ural Mountains",
+      "category": "Heyyy",
+      "amount": 0,
+      "id": 16
     }
   ]
 }
