@@ -83,6 +83,20 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-09-01",
+      "description": "shes a mean one, mr meow.",
+      "category": "entertainment",
+      "amount": "-2",
+      "id": 13
+    },
+    {
+      "date": "2020-09-01",
+      "description": "g",
+      "category": "g",
+      "amount": "-1",
+      "id": 14
     }
   ]
 }
