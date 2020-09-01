@@ -18,10 +18,28 @@ class AccountContainer extends Component {
     fetch(URL)
       .then(response => response.json())
       .then(transactions => {
-        console.log(transactions)
         this.setState({
           transactions : transactions,
           isLoaded : true
+        })
+      })
+  }
+
+  addTransaction = (newTransaction) => {
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        "content-type" : "application/json"
+      },
+      body : JSON.stringify(newTransaction)
+    }
+
+    fetch(URL, configObj)
+      .then(response => response.json())
+      .then(newTransaction => {
+        this.setState({
+          transactions : [...this.state.transactions, newTransaction]
         })
       })
   }
@@ -30,7 +48,7 @@ class AccountContainer extends Component {
     return (
       <div>
         <Search />
-        <AddTransactionForm />
+        <AddTransactionForm addTransaction={this.addTransaction} />
         {this.state.isLoaded === true ? <TransactionsList transactions={this.state.transactions}/> : "Loading!" }
       </div>
     );
