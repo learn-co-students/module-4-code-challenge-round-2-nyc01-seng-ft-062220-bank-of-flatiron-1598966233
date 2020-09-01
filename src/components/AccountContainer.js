@@ -17,13 +17,11 @@ state = {
 componentDidMount(){
   this.apiCall()
 }
-
 apiCall = () => {
   fetch(api)
   .then(resp => resp.json())
-  .then(data => this.setState({transactions: data, sortTransactions: data}))
+  .then(data => this.setState({transactions: data}))
 }
-
 submitHandler= e => {
   e.preventDefault()
 
@@ -47,21 +45,25 @@ submitHandler= e => {
     this.setState({transactions: newTransactions})
   })
 }
-
 searchHandler = e => {
   this.setState({ searchTerm: e.target.value})
 }
-
 filterTransactions = () => {
   return this.state.transactions.filter(trans => trans.description.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 }
+deleteHandler = (id) => {
+  fetch(`${api}/${id}`, {method: 'DELETE'})
+  this.apiCall()
+}
+
+
 
   render() {
     return (
       <div>
         <Search searchHandler={this.searchHandler} searchTerm={this.state.searchTerm}/>
         <AddTransactionForm submitHandler={this.submitHandler}/>
-        <TransactionsList transactions={this.state.transactions} filterTransactions={this.filterTransactions}/>
+        <TransactionsList transactions={this.state.transactions} filterTransactions={this.filterTransactions} deleteHandler={this.deleteHandler}/>
       </div>
     );
   }

@@ -3,8 +3,13 @@ import Transaction from "./Transaction";
 
 class TransactionsList extends React.Component {
 
+
+  deleteit = (id) => {
+    this.props.deleteHandler(id)
+  }
+
   render(){
-    let sortedTransactions = this.props.filterTransactions().map(transObj => <Transaction key={transObj.id} transaction={transObj}/>)
+    let sortedTransactions = this.props.filterTransactions().map(transObj => <Transaction key={transObj.id} transaction={transObj} deleteit={this.deleteit}/>)
     return (
       <table className="ui celled striped padded table">
         <tbody>
@@ -20,6 +25,9 @@ class TransactionsList extends React.Component {
             </th>
             <th>
               <h3 className="ui center aligned header">Amount</h3>
+            </th>
+            <th>
+              <h3 className="ui center aligned header">Delete</h3>
             </th>
           </tr>
           {sortedTransactions}
