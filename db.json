@@ -90,6 +90,20 @@
       "category": "Education",
       "amount": "-20.21",
       "id": 13
+    },
+    {
+      "date": "2020-09-01",
+      "description": "Code Challenge",
+      "category": "Education",
+      "amount": "10.33",
+      "id": 14
+    },
+    {
+      "date": "2020-09-02",
+      "description": "Internet Bills",
+      "category": "Internet",
+      "amount": "10.00",
+      "id": 15
     }
   ]
 }

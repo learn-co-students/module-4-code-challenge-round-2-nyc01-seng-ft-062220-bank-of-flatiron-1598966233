@@ -1,24 +1,20 @@
 import React from "react";
 
-class Search extends React.Component {
+const Search = (props) => {
 
+  return (
+    <div className="ui large fluid icon input">
+      <input
+        name="searchValue"
+        type="text"
+        value={props.searchValue}
+        placeholder={"Search your Recent Transactions"}
+        onChange={props.changeHandler}
+      />
+      <i className="circular search link icon"></i>
+    </div>
+  );
 
-  render(){
-    return (
-      <div className="ui large fluid icon input">
-        <input
-          name="searchValue"
-          type="text"
-          value={this.props.searchValue}
-          placeholder={"Search your Recent Transactions"}
-          onChange={(e) => {
-            this.props.changeHandler(e);
-          }}
-        />
-        <i className="circular search link icon"></i>
-      </div>
-    );
-  }
 };
 
 export default Search;
