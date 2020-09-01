@@ -5,17 +5,26 @@ import AddTransactionForm from "./AddTransactionForm";
 
 class AccountContainer extends Component {
 
+  state={
+    search: ""
+  }
+
 
   submitHandler = (transaction) => {
     return transaction
   }
 
+  search = (e) => {
+    this.setState({search: e.target.value})
+    console.log(this.state)
+  }
+
   render() {
     return (
       <div>
-        <Search />
+        <Search value={this.state.search} search={this.search} />
         <AddTransactionForm submitHandler={this.submitHandler} />
-        <TransactionsList  newTransaction={this.submitHandler()}/>
+        <TransactionsList  transactions={this.state} newTransaction={this.submitHandler()}/>
       </div>
     );
   }

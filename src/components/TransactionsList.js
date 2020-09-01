@@ -20,10 +20,11 @@ class TransactionsList extends React.Component {
   };
 
   newTransaction = (transaction) => {
-    console.log(this.props.newTransaction(transaction))
+    console.log(transaction)
   }
 
   render() {
+    this.newTransaction()
     return (
       <table className="ui celled striped padded table">
         <tbody>
