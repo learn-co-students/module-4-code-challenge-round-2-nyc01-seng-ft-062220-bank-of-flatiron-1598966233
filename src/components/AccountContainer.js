@@ -8,13 +8,14 @@ const transactionUrls = "http://localhost:3000/transactions/"
 class AccountContainer extends Component {
 
     state = {
-        transactions: []
+        transactions: [],
+        filteredTransactions: []
     }
 
     componentDidMount() {
         fetch(transactionUrls)
             .then(res => res.json())
-            .then(transactions => this.setState({transactions: transactions}))
+            .then(transactions => this.setState({transactions: transactions, filteredTransactions: transactions}))
     }
 
     submitHandler = (obj) => {
@@ -34,16 +35,47 @@ class AccountContainer extends Component {
 
         fetch(transactionUrls)
             .then(res => res.json())
-            .then(transactions => this.setState({transactions: transactions}))
+            .then(transactions => this.setState({transactions: transactions, filteredTransactions: transactions}))
+    }
+
+    searchHandler = (obj) => {
+        let newArray = [...this.state.transactions]
+
+        const filteredTransactions = newArray.filter(item => {
+            return item.description.toLowerCase().includes(obj.toLowerCase())
+        })
+
+        this.setState({
+            filteredTransactions: filteredTransactions
+        })
+
+    }
+
+    deleteHandler = (obj) => {
+        console.log(obj.id)
+        const packet = {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json",
+                "accept": "application/json",
+            }
+        }
+
+        fetch(transactionUrls + obj.id, packet)
+            .then(res => res.json())
+
+        fetch(transactionUrls)
+            .then(res => res.json())
+            .then(transactions => this.setState({transactions: transactions, filteredTransactions: transactions}))
     }
 
 
     render() {
     return (
       <div>
-        <Search />
+        <Search searchHandler={this.searchHandler}/>
         <AddTransactionForm submitHandler={this.submitHandler}/>
-        <TransactionsList transactions={this.state.transactions} />
+        <TransactionsList transactions={this.state.filteredTransactions} deleteHandler={this.deleteHandler} />
       </div>
     );
   }

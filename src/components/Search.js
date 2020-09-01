@@ -10,6 +10,7 @@ class Search extends React.Component {
         this.setState({
             searchTerm: e.target.value
         })
+        this.props.searchHandler(this.state.searchTerm)
     }
 
     render() {

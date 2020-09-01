@@ -4,7 +4,7 @@ import Transaction from "./Transaction";
 class TransactionsList extends React.Component{
 
   renderTransactions = () => {
-    return this.props.transactions.map(transaction => <Transaction key={transaction.id} transaction={transaction}/>)
+    return this.props.transactions.map(transaction => <Transaction key={transaction.id} transaction={transaction} deleteHandler={this.props.deleteHandler}/>)
   }
 
   render() {
