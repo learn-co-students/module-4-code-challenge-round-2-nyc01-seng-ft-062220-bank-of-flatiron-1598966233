@@ -83,6 +83,34 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-09-02",
+      "description": "THE GOALKEEPER",
+      "category": "popa",
+      "amount": "0.03",
+      "id": 13
+    },
+    {
+      "date": "2020-09-03",
+      "description": "aian",
+      "category": "aian",
+      "amount": "1",
+      "id": 14
+    },
+    {
+      "date": "2020-09-29",
+      "description": "w",
+      "category": "w",
+      "amount": "0.01",
+      "id": 15
+    },
+    {
+      "date": "2020-09-23",
+      "description": "q",
+      "category": "q",
+      "amount": "10",
+      "id": 16
     }
   ]
 }
