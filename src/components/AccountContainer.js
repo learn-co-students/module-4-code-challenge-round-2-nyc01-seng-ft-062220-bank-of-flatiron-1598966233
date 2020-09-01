@@ -24,6 +24,19 @@ class AccountContainer extends Component {
     this.setState({filteredTransactions: filteredArray})
   }
 
+  sortHandler = (type) => {
+    console.log(type) // extra deliverable
+    if (type === "Description") { // for somereason this does not match
+      console.log("Description")
+      this.setState({transactions: this.state.transactions.sort((a,b) => {
+        if (a.description < b.description) return -1 ;
+        else if (a.description > b.description) return 1;
+        return 0
+        })
+      })
+    }
+  }
+
   getTrasaction = () => {
     fetch("http://localhost:3000/transactions")
     .then(resp => resp.json())
@@ -38,8 +51,8 @@ class AccountContainer extends Component {
     return (
       <div>
         <Search searchHandler={this.searchHandler} />
-        <AddTransactionForm addNewTransaction={this.addNewTransaction} newId={this.newId()} />
-        <TransactionsList transactions={this.state.transactions} filteredTransactions={this.state.filteredTransactions} />
+        <AddTransactionForm addNewTransaction={this.addNewTransaction} newId={this.newId()}  />
+        <TransactionsList transactions={this.state.transactions} filteredTransactions={this.state.filteredTransactions} sortHandler={this.sortHandler} />
       </div>
     );
   }

@@ -11,22 +11,34 @@ class TransactionsList extends React.Component {
     }
   }
 
+  sortTransaction = (e) => {
+    this.props.sortHandler(e.target.parentElement.textContent)
+  }
+
   render() {
     return (
       <table className="ui celled striped padded table">
         <tbody>
           <tr>
             <th>
-              <h3 className="ui center aligned header">Date</h3>
+              <h3 className="ui center aligned header">
+                Date {<i onClick={this.sortTransaction} className="sort icon"></i>}
+              </h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Description</h3>
+              <h3 className="ui center aligned header">
+                Description {<i onClick={this.sortTransaction} className="sort icon"></i>}
+              </h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Category</h3>
+              <h3 className="ui center aligned header" name="Category">
+                Category {<i onClick={this.sortTransaction} className="sort icon"></i>}
+              </h3>
             </th>
             <th>
-              <h3 className="ui center aligned header">Amount</h3>
+              <h3 className="ui center aligned header" name="Amount">
+                Amount {<i onClick={this.sortTransaction} className="sort icon"></i>}
+              </h3>
             </th>
           </tr>
           {this.renderTransaction()}
